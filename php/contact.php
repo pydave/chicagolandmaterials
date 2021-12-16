@@ -43,7 +43,7 @@
 	$email = $_POST['email'];
 	$message = $_POST['message'];
 	$from = $email;
-	$to = 'chelig77@gmail.com';  // please change this email id
+	$to = 'araceli@chicagolandmaterials.com';  // please change this email id
 	$subject = 'Contact Form : Chicagoland Materials';
 
 	$body = "From: $name\n E-Mail: $email\n Message:\n $message";
