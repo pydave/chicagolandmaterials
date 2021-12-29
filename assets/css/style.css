@@ -1556,12 +1556,11 @@ General Styles - Owlcarousel
 /* -------------------------------------------------------------
 Google map
 ------------------------------------------------------------- */
-#map-section {
-  position: relative;
-  height: 55 0px;
+.map-section {
+  position:inherit;
   width: 100%;
+  overflow: hidden;
 }
-
 
 /*--------------------------------------------------------------
 	Services & Features
