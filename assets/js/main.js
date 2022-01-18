@@ -479,124 +479,6 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
         });
 
 
-        /*===============================================================
-         Working Request A Call Form
-         ================================================================*/
-
-        $("#requestACall").submit(function (e) {
-
-            e.preventDefault();
-            var $ = jQuery;
-
-            var postData = $(this).serializeArray(),
-                formURL = $(this).attr("action"),
-                $cfResponse = $('#requestFormResponse'),
-                $cfsubmit = $("#racSubmit"),
-                cfsubmitText = $cfsubmit.text();
-
-            $cfsubmit.text("Sending...");
-
-
-            $.ajax(
-                {
-                    url: formURL,
-                    type: "POST",
-                    data: postData,
-                    success: function (data) {
-                        $cfResponse.html(data);
-                        $cfsubmit.text(cfsubmitText);
-                        $('#requestACall input[name=name]').val('');
-                        $('#requestACall input[name=subject]').val('');
-                        $('#requestACall textarea[name=phone]').val('');
-                    },
-                    error: function (data) {
-                        alert("Error occurd! Please try again");
-                    }
-                });
-
-            return false;
-
-        });
-
-
-        /*===============================================================
-         Working Reservation Form
-         ================================================================*/
-
-        $("#reservationForm").submit(function (e) {
-
-            e.preventDefault();
-            var $ = jQuery;
-
-            var postData = $(this).serializeArray(),
-                formURL = $(this).attr("action"),
-                $cfResponse = $('#reservationFormResponse'),
-                $cfsubmit = $("#rfsubmit"),
-                cfsubmitText = $cfsubmit.text();
-
-            $cfsubmit.text("Sending...");
-
-
-            $.ajax(
-                {
-                    url: formURL,
-                    type: "POST",
-                    data: postData,
-                    success: function (data) {
-                        $cfResponse.html(data);
-                        $cfsubmit.text(cfsubmitText);
-                        $('#reservationForm input[name=date]').val('');
-                        $('#reservationForm input[name=time]').val('');
-                        $('#reservationForm textarea[name=people]').val('');
-                        $('#reservationForm textarea[name=email]').val('');
-                    },
-                    error: function (data) {
-                        alert("Error occurd! Please try again");
-                    }
-                });
-
-            return false;
-
-        });
-
-
-        /* ---------------------------------------------- /*
-         * Subscribe form ajax
-         /* ---------------------------------------------- */
-
-        $('#subscription-form').submit(function(e) {
-
-            e.preventDefault();
-            var $form           = $('#subscription-form');
-            var submit          = $('#subscription-form-submit');
-            var ajaxResponse    = $('#subscription-response');
-            var email           = $('input#semail').val();
-
-            $.ajax({
-                type: 'POST',
-                url: 'assets/php/subscribe.php',
-                dataType: 'json',
-                data: {
-                    email: email
-                },
-                cache: false,
-                beforeSend: function(result) {
-                    submit.empty();
-                    submit.append('<i class="fa fa-cog fa-spin"></i> Wait...');
-                },
-                success: function(result) {
-                    if(result.sendstatus == 1) {
-                        ajaxResponse.html(result.message);
-                        $form.fadeOut(500);
-                    } else {
-                        ajaxResponse.html(result.message);
-                    }
-                }
-            });
-
-        });
-
-
         /* ---------------------------------------------- /*
          * Google Map
          /* ---------------------------------------------- */
@@ -849,3 +731,10 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
 })(jQuery);
 
 
+  (function() { var qs,j,q,s,d=document, gi=d.getElementById,
+  ce=d.createElement, gt=d.getElementsByTagName,
+  id="calconic_", b="https://cdn.calconic.com/static/js/";
+  if(!gi.call(d,id)) { j=ce.call(d,"script"); j.id=id; j.type="text/javascript"; j.async=true;
+  j.dataset.calconic=true;
+  j.src=b+"calconic.min.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(j,q) }
+})();
